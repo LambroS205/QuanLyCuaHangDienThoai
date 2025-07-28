@@ -20,7 +20,7 @@ namespace QuanLyCuaHangDienThoai.GUI
             this.currentUser = user;
 
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
+            leftBorderBtn.Size = new Size(7, 49);
             panelMenu.Controls.Add(leftBorderBtn);
         }
 

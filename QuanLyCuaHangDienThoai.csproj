@@ -156,6 +156,9 @@
     <EmbeddedResource Include="GUI\frmChiTietHoaDon.resx">
       <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmChiTietPhieuNhap.resx">
+      <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmLichSuBanHang.resx">
       <DependentUpon>frmLichSuBanHang.cs</DependentUpon>
     </EmbeddedResource>
