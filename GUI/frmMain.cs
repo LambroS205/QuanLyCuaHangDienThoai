@@ -18,7 +18,7 @@ namespace QuanLyCuaHangDienThoai.GUI
 
             // Khởi tạo thanh chỉ báo
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
+            leftBorderBtn.Size = new Size(7, 49);
             panelMenu.Controls.Add(leftBorderBtn);
         }
 

@@ -30,27 +30,31 @@
             this.dgvLichSu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLichSu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLichSu.Location = new System.Drawing.Point(0, 0);
+            this.dgvLichSu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvLichSu.Name = "dgvLichSu";
             this.dgvLichSu.ReadOnly = true;
             this.dgvLichSu.RowHeadersWidth = 51;
             this.dgvLichSu.RowTemplate.Height = 24;
             this.dgvLichSu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLichSu.Size = new System.Drawing.Size(800, 450);
+            this.dgvLichSu.Size = new System.Drawing.Size(600, 366);
             this.dgvLichSu.TabIndex = 0;
             this.dgvLichSu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichSu_CellDoubleClick);
             // 
             // frmLichSuBanHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dgvLichSu);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmLichSuBanHang";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lịch Sử Bán Hàng";
             this.Load += new System.EventHandler(this.frmLichSuBanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichSu)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
