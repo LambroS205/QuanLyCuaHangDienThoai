@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCuaHangDienThoai.DAL;
+using System;
 using System.Data;
 
 namespace QuanLyCuaHangDienThoai.DAL
@@ -8,7 +9,6 @@ namespace QuanLyCuaHangDienThoai.DAL
         public DataTable GetDoanhThu(DateTime fromDate, DateTime toDate)
         {
             string query = "SELECT CAST(NgayLap AS DATE) AS Ngay, SUM(TongTien) AS DoanhThu FROM HoaDon WHERE NgayLap BETWEEN @fromDate AND @toDate GROUP BY CAST(NgayLap AS DATE) ORDER BY Ngay";
-            // Thêm 1 ngày vào toDate để bao gồm cả ngày kết thúc
             return DataProvider.Instance.ExecuteQuery(query, new object[] { fromDate, toDate.AddDays(1) });
         }
 
@@ -34,6 +34,19 @@ namespace QuanLyCuaHangDienThoai.DAL
                 LEFT JOIN KhachHang kh ON hd.MaKH = kh.MaKH
                 WHERE hd.NgayLap BETWEEN @fromDate AND @toDate
                 ORDER BY hd.NgayLap DESC";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { fromDate, toDate.AddDays(1) });
+        }
+
+        // --- PHƯƠNG THỨC MỚI ---
+        public DataTable GetLichSuPhieuNhap(DateTime fromDate, DateTime toDate)
+        {
+            string query = @"
+                SELECT pn.MaPN, pn.NgayNhap, ncc.TenNCC, nv.HoTen AS TenNhanVien, pn.TongTien
+                FROM PhieuNhap pn
+                JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                JOIN NhanVien nv ON pn.MaNV = nv.MaNV
+                WHERE pn.NgayNhap BETWEEN @fromDate AND @toDate
+                ORDER BY pn.NgayNhap DESC";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { fromDate, toDate.AddDays(1) });
         }
     }

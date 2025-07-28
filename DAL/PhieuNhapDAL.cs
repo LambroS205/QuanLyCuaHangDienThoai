@@ -1,5 +1,6 @@
 ﻿using QuanLyCuaHangDienThoai.DTO;
 using System;
+using System.Data;
 
 namespace QuanLyCuaHangDienThoai.DAL
 {
@@ -24,7 +25,6 @@ namespace QuanLyCuaHangDienThoai.DAL
 
         public bool TaoPhieuNhap(PhieuNhapDTO pn)
         {
-            // Sử dụng transaction ở đây là rất quan trọng
             string pnQuery = "INSERT INTO PhieuNhap (MaPN, MaNCC, MaNV, NgayNhap, TongTien) VALUES ( @MaPN , @MaNCC , @MaNV , @NgayNhap , @TongTien )";
             int result = DataProvider.Instance.ExecuteNonQuery(pnQuery, new object[] { pn.MaPN, pn.MaNCC, pn.MaNV, pn.NgayNhap, pn.TongTien });
 
@@ -41,6 +41,43 @@ namespace QuanLyCuaHangDienThoai.DAL
                 return true;
             }
             return false;
+        }
+
+        // --- CÁC PHƯƠNG THỨC MỚI ---
+        public DataTable GetLichSuPhieuNhap()
+        {
+            string query = @"
+                SELECT pn.MaPN, pn.NgayNhap, ncc.TenNCC, nv.HoTen AS TenNhanVien, pn.TongTien
+                FROM PhieuNhap pn
+                JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                JOIN NhanVien nv ON pn.MaNV = nv.MaNV
+                ORDER BY pn.NgayNhap DESC";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable GetThongTinChiTietPhieuNhap(string maPN)
+        {
+            string query = @"
+                SELECT 
+                    pn.MaPN, pn.NgayNhap, pn.TongTien,
+                    nv.HoTen AS TenNhanVien,
+                    ncc.MaNCC, ncc.TenNCC, ncc.DiaChi, ncc.SoDienThoai
+                FROM PhieuNhap pn
+                JOIN NhanVien nv ON pn.MaNV = nv.MaNV
+                JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+                WHERE pn.MaPN = @MaPN";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maPN });
+        }
+
+        public DataTable GetDanhSachSanPhamCuaPhieuNhap(string maPN)
+        {
+            string query = @"
+                SELECT 
+                    sp.MaSP, sp.TenSP, ctpn.SoLuong, ctpn.DonGiaNhap, (ctpn.SoLuong * ctpn.DonGiaNhap) AS ThanhTien
+                FROM ChiTietPhieuNhap ctpn
+                JOIN SanPham sp ON ctpn.MaSP = sp.MaSP
+                WHERE ctpn.MaPN = @MaPN";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maPN });
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyCuaHangDienThoai.GUI
 {
-    partial class frmChiTietHoaDon
+    partial class frmChiTietPhieuNhap
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,8 +17,6 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -29,7 +27,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.lblSdt = new System.Windows.Forms.Label();
-            this.lblTenKH = new System.Windows.Forms.Label();
+            this.lblTenNCC = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -38,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblNgayLap = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblMaHD = new System.Windows.Forms.Label();
+            this.lblMaPN = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,36 +73,13 @@
             this.dgvSanPham.AllowUserToDeleteRows = false;
             this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSanPham.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSanPham.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSanPham.ColumnHeadersHeight = 35;
-            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.Location = new System.Drawing.Point(20, 220);
             this.dgvSanPham.Name = "dgvSanPham";
             this.dgvSanPham.ReadOnly = true;
-            this.dgvSanPham.RowHeadersVisible = false;
             this.dgvSanPham.RowHeadersWidth = 51;
-            this.dgvSanPham.RowTemplate.Height = 28;
-            this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSanPham.RowTemplate.Height = 24;
             this.dgvSanPham.Size = new System.Drawing.Size(760, 180);
             this.dgvSanPham.TabIndex = 3;
             // 
@@ -144,11 +119,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(250, 60);
+            this.label11.Location = new System.Drawing.Point(300, 60);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(261, 23);
+            this.label11.Size = new System.Drawing.Size(160, 23);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Cảm ơn quý khách hẹn gặp lại!";
+            this.label11.Text = "Người Lập Phiếu";
             // 
             // panel3
             // 
@@ -164,7 +139,7 @@
             // 
             this.groupBox2.Controls.Add(this.lblDiaChi);
             this.groupBox2.Controls.Add(this.lblSdt);
-            this.groupBox2.Controls.Add(this.lblTenKH);
+            this.groupBox2.Controls.Add(this.lblTenNCC);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
@@ -175,7 +150,7 @@
             this.groupBox2.Size = new System.Drawing.Size(380, 130);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông tin khách hàng";
+            this.groupBox2.Text = "Thông tin nhà cung cấp";
             // 
             // lblDiaChi
             // 
@@ -195,15 +170,15 @@
             this.lblSdt.TabIndex = 4;
             this.lblSdt.Text = "...";
             // 
-            // lblTenKH
+            // lblTenNCC
             // 
-            this.lblTenKH.AutoSize = true;
-            this.lblTenKH.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTenKH.Location = new System.Drawing.Point(110, 35);
-            this.lblTenKH.Name = "lblTenKH";
-            this.lblTenKH.Size = new System.Drawing.Size(25, 20);
-            this.lblTenKH.TabIndex = 3;
-            this.lblTenKH.Text = "...";
+            this.lblTenNCC.AutoSize = true;
+            this.lblTenNCC.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTenNCC.Location = new System.Drawing.Point(110, 35);
+            this.lblTenNCC.Name = "lblTenNCC";
+            this.lblTenNCC.Size = new System.Drawing.Size(25, 20);
+            this.lblTenNCC.TabIndex = 3;
+            this.lblTenNCC.Text = "...";
             // 
             // label10
             // 
@@ -228,9 +203,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(15, 35);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 20);
+            this.label8.Size = new System.Drawing.Size(68, 20);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Tên KH:";
+            this.label8.Text = "Tên NCC:";
             // 
             // groupBox1
             // 
@@ -238,7 +213,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lblNgayLap);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.lblMaHD);
+            this.groupBox1.Controls.Add(this.lblMaPN);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -247,7 +222,7 @@
             this.groupBox1.Size = new System.Drawing.Size(380, 130);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin hóa đơn";
+            this.groupBox1.Text = "Thông tin phiếu nhập";
             // 
             // lblNhanVien
             // 
@@ -285,24 +260,24 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Ngày lập:";
             // 
-            // lblMaHD
+            // lblMaPN
             // 
-            this.lblMaHD.AutoSize = true;
-            this.lblMaHD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblMaHD.Location = new System.Drawing.Point(110, 35);
-            this.lblMaHD.Name = "lblMaHD";
-            this.lblMaHD.Size = new System.Drawing.Size(25, 20);
-            this.lblMaHD.TabIndex = 1;
-            this.lblMaHD.Text = "...";
+            this.lblMaPN.AutoSize = true;
+            this.lblMaPN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMaPN.Location = new System.Drawing.Point(110, 35);
+            this.lblMaPN.Name = "lblMaPN";
+            this.lblMaPN.Size = new System.Drawing.Size(25, 20);
+            this.lblMaPN.TabIndex = 1;
+            this.lblMaPN.Text = "...";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã hóa đơn:";
+            this.label2.Text = "Mã phiếu nhập:";
             // 
             // panel2
             // 
@@ -322,7 +297,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(760, 23);
             this.label3.TabIndex = 1;
-            this.label3.Text = "HÓA ĐƠN BÁN HÀNG";
+            this.label3.Text = "PHIẾU NHẬP HÀNG";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -357,7 +332,7 @@
             this.btnInPDF.UseVisualStyleBackColor = true;
             this.btnInPDF.Click += new System.EventHandler(this.btnInPDF_Click);
             // 
-            // frmChiTietHoaDon
+            // frmChiTietPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -367,10 +342,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmChiTietHoaDon";
+            this.Name = "frmChiTietPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Chi Tiết Hóa Đơn";
-            this.Load += new System.EventHandler(this.frmChiTietHoaDon_Load);
+            this.Text = "Chi Tiết Phiếu Nhập";
+            this.Load += new System.EventHandler(this.frmChiTietPhieuNhap_Load);
             this.panelMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -399,12 +374,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblNgayLap;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblMaHD;
+        private System.Windows.Forms.Label lblMaPN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.Label lblSdt;
-        private System.Windows.Forms.Label lblTenKH;
+        private System.Windows.Forms.Label lblTenNCC;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

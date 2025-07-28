@@ -8,29 +8,27 @@ namespace QuanLyCuaHangDienThoai.GUI
     public partial class frmMain : Form
     {
         private TaiKhoanDTO currentUser;
-        private Button currentButton; // Lưu lại button đang được chọn
-        private Panel leftBorderBtn; // Thanh chỉ báo bên trái button
+        private Button currentButton;
+        private Panel leftBorderBtn;
+
+        // Thuộc tính công khai để frmLogin có thể kiểm tra
+        public bool IsLoggingOut { get; private set; } = false;
 
         public frmMain(TaiKhoanDTO user)
         {
             InitializeComponent();
             this.currentUser = user;
 
-            // Khởi tạo thanh chỉ báo
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 49);
+            leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
         }
 
-        // Phương thức chung để kích hoạt một button
         private void ActivateButton(object senderBtn)
         {
             if (senderBtn != null)
             {
-                // Hủy kích hoạt button cũ
                 DisableButton();
-
-                // Kích hoạt button mới
                 currentButton = (Button)senderBtn;
                 currentButton.BackColor = Color.FromArgb(46, 51, 73);
                 currentButton.ForeColor = Color.FromArgb(0, 126, 249);
@@ -38,7 +36,6 @@ namespace QuanLyCuaHangDienThoai.GUI
                 currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentButton.ImageAlign = ContentAlignment.MiddleRight;
 
-                // Di chuyển thanh chỉ báo
                 leftBorderBtn.BackColor = Color.FromArgb(0, 126, 249);
                 leftBorderBtn.Location = new Point(0, currentButton.Location.Y);
                 leftBorderBtn.Visible = true;
@@ -46,7 +43,6 @@ namespace QuanLyCuaHangDienThoai.GUI
             }
         }
 
-        // Phương thức để hủy kích hoạt một button
         private void DisableButton()
         {
             if (currentButton != null)
@@ -59,7 +55,6 @@ namespace QuanLyCuaHangDienThoai.GUI
             }
         }
 
-        // Một phương thức chung để thêm UserControl vào panel chính
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -126,7 +121,12 @@ namespace QuanLyCuaHangDienThoai.GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.IsLoggingOut = true; // Đánh dấu là đang đăng xuất
+                this.Close();
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -137,7 +137,6 @@ namespace QuanLyCuaHangDienThoai.GUI
                 PhanQuyen();
             }
             timer1.Start();
-            // Mặc định kích hoạt chức năng bán hàng khi mở
             btnBanHang.PerformClick();
         }
 
@@ -159,10 +158,14 @@ namespace QuanLyCuaHangDienThoai.GUI
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất và thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            // Chỉ hỏi xác nhận thoát nếu người dùng nhấn nút 'X'
+            if (!this.IsLoggingOut)
             {
-                e.Cancel = true;
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

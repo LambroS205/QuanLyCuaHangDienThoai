@@ -85,6 +85,12 @@
     <Compile Include="GUI\frmChiTietHoaDon.Designer.cs">
       <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmChiTietPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmChiTietPhieuNhap.Designer.cs">
+      <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmLichSuBanHang.cs">
       <SubType>Form</SubType>
     </Compile>

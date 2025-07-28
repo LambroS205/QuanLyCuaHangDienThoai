@@ -8,31 +8,31 @@ using System.Windows.Forms;
 
 namespace QuanLyCuaHangDienThoai.GUI
 {
-    public partial class frmChiTietHoaDon : Form
+    public partial class frmChiTietPhieuNhap : Form
     {
-        private string maHD;
-        private HoaDonBUS bus = new HoaDonBUS();
-        private DataTable dtThongTinHD;
+        private string maPN;
+        private PhieuNhapBUS bus = new PhieuNhapBUS();
+        private DataTable dtThongTinPN;
         private DataTable dtSanPham;
 
-        public frmChiTietHoaDon(string maHD)
+        public frmChiTietPhieuNhap(string maPN)
         {
             InitializeComponent();
-            this.maHD = maHD;
+            this.maPN = maPN;
         }
 
-        private void frmChiTietHoaDon_Load(object sender, EventArgs e)
+        private void frmChiTietPhieuNhap_Load(object sender, EventArgs e)
         {
-            dtThongTinHD = bus.GetThongTinChiTietHoaDon(maHD);
-            dtSanPham = bus.GetDanhSachSanPhamCuaHoaDon(maHD);
+            dtThongTinPN = bus.GetThongTinChiTietPhieuNhap(maPN);
+            dtSanPham = bus.GetDanhSachSanPhamCuaPhieuNhap(maPN);
 
-            if (dtThongTinHD.Rows.Count > 0)
+            if (dtThongTinPN.Rows.Count > 0)
             {
-                DataRow row = dtThongTinHD.Rows[0];
-                lblMaHD.Text = row["MaHD"].ToString();
-                lblNgayLap.Text = Convert.ToDateTime(row["NgayLap"]).ToString("dd/MM/yyyy HH:mm:ss");
+                DataRow row = dtThongTinPN.Rows[0];
+                lblMaPN.Text = row["MaPN"].ToString();
+                lblNgayLap.Text = Convert.ToDateTime(row["NgayNhap"]).ToString("dd/MM/yyyy HH:mm:ss");
                 lblNhanVien.Text = row["TenNhanVien"].ToString();
-                lblTenKH.Text = row["TenKhachHang"].ToString();
+                lblTenNCC.Text = row["TenNCC"].ToString();
                 lblSdt.Text = row["SoDienThoai"].ToString();
                 lblDiaChi.Text = row["DiaChi"].ToString();
                 lblTongTien.Text = Convert.ToDecimal(row["TongTien"]).ToString("N0") + " VNĐ";
@@ -49,15 +49,13 @@ namespace QuanLyCuaHangDienThoai.GUI
                 dgvSanPham.Columns["MaSP"].HeaderText = "Mã SP";
                 dgvSanPham.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
                 dgvSanPham.Columns["SoLuong"].HeaderText = "Số Lượng";
-                dgvSanPham.Columns["DonGia"].HeaderText = "Đơn Giá";
+                dgvSanPham.Columns["DonGiaNhap"].HeaderText = "Đơn Giá Nhập";
                 dgvSanPham.Columns["ThanhTien"].HeaderText = "Thành Tiền";
 
-                dgvSanPham.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+                dgvSanPham.Columns["DonGiaNhap"].DefaultCellStyle.Format = "N0";
                 dgvSanPham.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
 
                 dgvSanPham.Columns["TenSP"].FillWeight = 200;
-                dgvSanPham.Columns["MaSP"].FillWeight = 80;
-                dgvSanPham.Columns["SoLuong"].FillWeight = 60;
             }
         }
 
@@ -65,7 +63,7 @@ namespace QuanLyCuaHangDienThoai.GUI
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
-            saveFileDialog.FileName = $"HoaDon_{maHD}.pdf";
+            saveFileDialog.FileName = $"PhieuNhap_{maPN}.pdf";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -92,15 +90,15 @@ namespace QuanLyCuaHangDienThoai.GUI
                     document.Add(storeAddress);
                     document.Add(new Paragraph(" "));
 
-                    Paragraph title = new Paragraph("HÓA ĐƠN BÁN HÀNG", fontTitle);
+                    Paragraph title = new Paragraph("PHIẾU NHẬP HÀNG", fontTitle);
                     title.Alignment = Element.ALIGN_CENTER;
                     title.SpacingAfter = 20;
                     document.Add(title);
 
-                    document.Add(new Paragraph($"Mã hóa đơn: {lblMaHD.Text}", fontNormal));
+                    document.Add(new Paragraph($"Mã phiếu nhập: {lblMaPN.Text}", fontNormal));
                     document.Add(new Paragraph($"Ngày lập: {lblNgayLap.Text}", fontNormal));
                     document.Add(new Paragraph($"Nhân viên: {lblNhanVien.Text}", fontNormal));
-                    document.Add(new Paragraph($"Khách hàng: {lblTenKH.Text}", fontNormal));
+                    document.Add(new Paragraph($"Nhà cung cấp: {lblTenNCC.Text}", fontNormal));
                     document.Add(new Paragraph($"Số điện thoại: {lblSdt.Text}", fontNormal));
                     document.Add(new Paragraph($"Địa chỉ: {lblDiaChi.Text}", fontNormal));
                     document.Add(new Paragraph(" "));
@@ -112,7 +110,7 @@ namespace QuanLyCuaHangDienThoai.GUI
                     table.AddCell(new Phrase("STT", fontHeader));
                     table.AddCell(new Phrase("Tên sản phẩm", fontHeader));
                     table.AddCell(new Phrase("SL", fontHeader));
-                    table.AddCell(new Phrase("Đơn giá", fontHeader));
+                    table.AddCell(new Phrase("Đơn giá nhập", fontHeader));
                     table.AddCell(new Phrase("Thành tiền", fontHeader));
 
                     int stt = 1;
@@ -121,7 +119,7 @@ namespace QuanLyCuaHangDienThoai.GUI
                         table.AddCell(new Phrase(stt++.ToString(), fontNormal));
                         table.AddCell(new Phrase(row["TenSP"].ToString(), fontNormal));
                         table.AddCell(new Phrase(row["SoLuong"].ToString(), fontNormal));
-                        table.AddCell(new Phrase(Convert.ToDecimal(row["DonGia"]).ToString("N0"), fontNormal));
+                        table.AddCell(new Phrase(Convert.ToDecimal(row["DonGiaNhap"]).ToString("N0"), fontNormal));
                         table.AddCell(new Phrase(Convert.ToDecimal(row["ThanhTien"]).ToString("N0"), fontNormal));
                     }
                     document.Add(table);
@@ -132,17 +130,17 @@ namespace QuanLyCuaHangDienThoai.GUI
                     document.Add(total);
                     document.Add(new Paragraph(" "));
 
-                    Paragraph footer = new Paragraph("Cảm ơn quý khách và hẹn gặp lại!", fontBold);
-                    footer.Alignment = Element.ALIGN_CENTER;
+                    Paragraph footer = new Paragraph("Người lập phiếu", fontBold);
+                    footer.Alignment = Element.ALIGN_RIGHT;
                     footer.SpacingBefore = 20;
                     document.Add(footer);
 
                     document.Close();
-                    MessageBox.Show("In hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("In phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi khi in hóa đơn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi khi in phiếu nhập: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

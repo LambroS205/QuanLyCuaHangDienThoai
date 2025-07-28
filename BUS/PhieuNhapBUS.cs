@@ -1,5 +1,6 @@
 ﻿using QuanLyCuaHangDienThoai.DAL;
 using QuanLyCuaHangDienThoai.DTO;
+using System.Data;
 
 namespace QuanLyCuaHangDienThoai.BUS
 {
@@ -19,6 +20,22 @@ namespace QuanLyCuaHangDienThoai.BUS
                 return false;
             }
             return dal.TaoPhieuNhap(pn);
+        }
+
+        // --- CÁC PHƯƠNG THỨC MỚI ---
+        public DataTable GetLichSuPhieuNhap()
+        {
+            return dal.GetLichSuPhieuNhap();
+        }
+
+        public DataTable GetThongTinChiTietPhieuNhap(string maPN)
+        {
+            return dal.GetThongTinChiTietPhieuNhap(maPN);
+        }
+
+        public DataTable GetDanhSachSanPhamCuaPhieuNhap(string maPN)
+        {
+            return dal.GetDanhSachSanPhamCuaPhieuNhap(maPN);
         }
     }
 }

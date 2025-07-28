@@ -1,4 +1,5 @@
-﻿using QuanLyCuaHangDienThoai.DAL;
+﻿
+using QuanLyCuaHangDienThoai.DAL;
 using System;
 using System.Data;
 
@@ -21,6 +22,12 @@ namespace QuanLyCuaHangDienThoai.BUS
         public DataTable GetLichSuHoaDon(DateTime fromDate, DateTime toDate)
         {
             return dal.GetLichSuHoaDon(fromDate, toDate);
+        }
+
+        // --- PHƯƠNG THỨC MỚI ---
+        public DataTable GetLichSuPhieuNhap(DateTime fromDate, DateTime toDate)
+        {
+            return dal.GetLichSuPhieuNhap(fromDate, toDate);
         }
     }
 }

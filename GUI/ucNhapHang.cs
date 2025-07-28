@@ -89,30 +89,9 @@ namespace QuanLyCuaHangDienThoai.GUI
         {
             dgvDanhSachNhap.DataSource = null;
             dgvDanhSachNhap.DataSource = danhSachNhap;
-            SetupDataGridView();
 
             decimal tongTien = danhSachNhap.Sum(item => item.ThanhTien);
             lblTongTien.Text = tongTien.ToString("N0") + " VNĐ";
-        }
-
-        private void SetupDataGridView()
-        {
-            if (dgvDanhSachNhap.Columns.Count > 0)
-            {
-                dgvDanhSachNhap.Columns["MaPN"].Visible = false;
-                dgvDanhSachNhap.Columns["MaSP"].HeaderText = "Mã SP";
-                dgvDanhSachNhap.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
-                dgvDanhSachNhap.Columns["SoLuong"].HeaderText = "Số Lượng";
-                dgvDanhSachNhap.Columns["DonGiaNhap"].HeaderText = "Đơn Giá Nhập";
-                dgvDanhSachNhap.Columns["ThanhTien"].HeaderText = "Thành Tiền";
-
-                dgvDanhSachNhap.Columns["DonGiaNhap"].DefaultCellStyle.Format = "N0";
-                dgvDanhSachNhap.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
-
-                dgvDanhSachNhap.Columns["TenSP"].FillWeight = 200;
-                dgvDanhSachNhap.Columns["MaSP"].FillWeight = 80;
-                dgvDanhSachNhap.Columns["SoLuong"].FillWeight = 60;
-            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

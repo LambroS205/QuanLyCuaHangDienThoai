@@ -24,6 +24,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
@@ -40,6 +42,8 @@
             this.dgvTopSanPham = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvLichSuHoaDon = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage(); // Tab mới
+            this.dgvLichSuNhapHang = new System.Windows.Forms.DataGridView(); // DataGridView mới
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -49,6 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopSanPham)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuHoaDon)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,6 +127,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.tabControl1.Location = new System.Drawing.Point(0, 60);
@@ -248,7 +255,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1036, 544);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Lịch sử hóa đơn";
+            this.tabPage3.Text = "Lịch sử bán hàng";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvLichSuHoaDon
@@ -291,6 +298,57 @@
             this.dgvLichSuHoaDon.TabIndex = 0;
             this.dgvLichSuHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichSuHoaDon_CellDoubleClick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvLichSuNhapHang);
+            this.tabPage4.Location = new System.Drawing.Point(4, 32);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1036, 544);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Lịch sử nhập hàng";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgvLichSuNhapHang
+            // 
+            this.dgvLichSuNhapHang.AllowUserToAddRows = false;
+            this.dgvLichSuNhapHang.AllowUserToDeleteRows = false;
+            this.dgvLichSuNhapHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLichSuNhapHang.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLichSuNhapHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLichSuNhapHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLichSuNhapHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLichSuNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvLichSuNhapHang.ColumnHeadersHeight = 35;
+            this.dgvLichSuNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLichSuNhapHang.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvLichSuNhapHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLichSuNhapHang.EnableHeadersVisualStyles = false;
+            this.dgvLichSuNhapHang.Location = new System.Drawing.Point(3, 3);
+            this.dgvLichSuNhapHang.Name = "dgvLichSuNhapHang";
+            this.dgvLichSuNhapHang.ReadOnly = true;
+            this.dgvLichSuNhapHang.RowHeadersVisible = false;
+            this.dgvLichSuNhapHang.RowHeadersWidth = 51;
+            this.dgvLichSuNhapHang.RowTemplate.Height = 28;
+            this.dgvLichSuNhapHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLichSuNhapHang.Size = new System.Drawing.Size(1030, 538);
+            this.dgvLichSuNhapHang.TabIndex = 1;
+            this.dgvLichSuNhapHang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichSuNhapHang_CellDoubleClick);
+            // 
             // ucThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,6 +370,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTopSanPham)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuHoaDon)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichSuNhapHang)).EndInit();
             this.ResumeLayout(false);
         }
 
@@ -333,5 +393,7 @@
         private System.Windows.Forms.DataGridView dgvTopSanPham;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgvLichSuHoaDon;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dgvLichSuNhapHang;
     }
 }
